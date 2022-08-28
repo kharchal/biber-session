@@ -15,16 +15,18 @@ public class Main {
 
         Session session = sessionFactory.openSession();
 
-        Pet pet = session.find(Pet.class, 2L);
-        System.out.println("pet = " + pet);
+        Pet pet = new Pet();
 
-        Pet pet2 = session.find(Pet.class, 2L);
-        System.out.println("pet = " + pet2);
+        pet.setName("new name");
+        pet.setAge(15);
+        pet.setType(2L);
+        session.persist(pet);
 
-        System.out.println(pet == pet2);
+        Pet pet1 = session.find(Pet.class, 8L);
+        System.out.println("pet1 = " + pet1);
 
-        PetType petType = session.find(PetType.class, 1L);
-        System.out.println("petType = " + petType);
+        session.remove(pet1);
+
 
         session.close();
 

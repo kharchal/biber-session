@@ -19,4 +19,7 @@ public class Pet {
 
     @Column(name = "age")
     private int age;
+
+    @Column(name = "pet_type_id")
+    private Long type;
 }
